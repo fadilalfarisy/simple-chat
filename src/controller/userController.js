@@ -1,4 +1,4 @@
-import users from '../model/user.js'
+import Users from '../model/user.js'
 
 // const getAllUser = async () => {
 //     try {
@@ -21,7 +21,7 @@ import users from '../model/user.js'
 //             raw: true,
 //             returning: true
 //         });
-        
+
 //     } catch (err) {
 //         console.log(err.message)
 //         return err.message
@@ -88,42 +88,42 @@ import users from '../model/user.js'
 //     }
 // }
 
-function getAllUser(){
-    return users
+function getAllUser() {
+    return Users
 }
 
-function getRoomUser(room){
-    return users.filter(element => element.room == room)
+function getRoomUser(room) {
+    return Users.filter(element => element.room === room)
 }
 
-function userJoin(id, username, room){
-    users.push({
+function userJoin(id, username, room) {
+    Users.push({
         id,
         username,
         room
     })
 
-    return {id, username, room}
+    return { id, username, room }
 }
 
-function findUser(id){
-    return users.find(element => element.id == id)
+function findUser(id) {
+    return Users.find(element => element.id == id)
 }
 
-function removeUser(id){
-    const index = users.findIndex(element => element.id == id)
+function removeUser(id) {
+    const index = Users.findIndex(element => element.id == id)
 
-    if(index > -1){
-        return users.splice(index, 1)
+    if (index > -1) {
+        return Users.splice(index, 1)
     }
 }
 
-function editUser(id, room){
-    const index = users.findIndex(element => element.id == id)
+function editUser(id, room) {
+    const index = Users.findIndex(element => element.id == id)
 
-    if(index > -1){
-        users[index].room = room
-        return users[index]
+    if (index > -1) {
+        Users[index].room = room
+        return Users[index]
     }
 }
 

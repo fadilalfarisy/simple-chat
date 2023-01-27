@@ -23,6 +23,6 @@
 //     console.error('Unable to create table : ', error);
 //  });
 
-const users = []
+const Users = []
 
-export default users
+export default Users
