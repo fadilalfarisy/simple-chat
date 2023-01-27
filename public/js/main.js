@@ -9,12 +9,12 @@ const codeRoom = document.getElementById('room')
 
 const { username } = Qs.parse(location.search, {
     ignoreQueryPrefix: true,
-  });
+});
 
 
-join.addEventListener('click', (e)=>{
+join.addEventListener('click', (e) => {
     e.preventDefault()
-    
+
     socket.emit('join', codeRoom.value)
     message.innerHTML = '';
     codeRoom.value = '';
@@ -29,7 +29,7 @@ socket.on('message', msg => {
 });
 
 //listening user join
-socket.on('listUser', ({users}) => {
+socket.on('listUser', ({ users }) => {
     displayUserOnline(users)
 })
 
@@ -47,7 +47,7 @@ send.addEventListener('submit', (e) => {
 
 
 //display message to DOM
-function displayMessage({username, msg, time}){
+function displayMessage({ username, msg, time }) {
     //create div with class message
     const div = document.createElement('div');
     div.classList.add('message');
@@ -72,7 +72,7 @@ function displayMessage({username, msg, time}){
 }
 
 
-function displayUserOnline(users){
+function displayUserOnline(users) {
     //reset list user online
     onlineUsers.innerHTML = ''
 
@@ -80,6 +80,6 @@ function displayUserOnline(users){
     users.forEach(user => {
         const li = document.createElement('li')
         li.innerHTML = user.username
-        onlineUsers.appendChild(li) 
+        onlineUsers.appendChild(li)
     });
 }
