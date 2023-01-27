@@ -28,10 +28,10 @@ const io = new Server(httpServer);
 app.use(bodyParser.urlencoded({ extended: false }))
 
 //set public folder
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 app.get('/', async (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(path.join(__dirname, '/public/html/index.html'))
 })
 
 //run when client connect
